@@ -1,0 +1,9 @@
+[project]
+name = "shorts-builder"
+version = "0.1.0"
+description = "Turn manhwa chapters into viral-style vertical shorts"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+shorts = "shorts_builder.cli:main"

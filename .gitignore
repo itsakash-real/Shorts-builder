@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+projects/*/media/
+projects/*/work/
+*.wav
+*.mp4
+!examples/**/*.md
