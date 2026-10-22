@@ -6,3 +6,5 @@ projects/*/work/
 *.wav
 *.mp4
 !examples/**/*.md
+projects/*/shorts/*/build/
+projects/*/shorts/*/vo/

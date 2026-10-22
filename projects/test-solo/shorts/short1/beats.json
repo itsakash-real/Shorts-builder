@@ -1,0 +1,267 @@
+{
+ "beats": [
+  {
+   "id": "B01",
+   "start": 0.0,
+   "end": 2.55,
+   "caption": "THE GODS CAME TO BEG",
+   "highlight": [
+    "GODS"
+   ],
+   "music": null
+  },
+  {
+   "id": "B02",
+   "start": 2.55,
+   "end": 4.08,
+   "caption": "HE REFUSED THEM",
+   "highlight": [
+    "REFUSED"
+   ],
+   "music": null
+  },
+  {
+   "id": "B03",
+   "start": 4.08,
+   "end": 7.12,
+   "caption": "THE STRONGEST MAN ALIVE",
+   "highlight": [
+    "STRONGEST"
+   ],
+   "music": null
+  },
+  {
+   "id": "B04",
+   "start": 7.12,
+   "end": 10.15,
+   "caption": "THE LAST SWORD MASTER",
+   "highlight": [
+    "SWORD",
+    "MASTER"
+   ],
+   "music": null
+  },
+  {
+   "id": "B05",
+   "start": 10.15,
+   "end": 12.74,
+   "caption": "NOW HE WORKS A DESK JOB",
+   "highlight": [
+    "DESK"
+   ],
+   "music": null
+  },
+  {
+   "id": "B06",
+   "start": 12.74,
+   "end": 14.47,
+   "caption": "THEY SEIZED HIS FORTUNE",
+   "highlight": [
+    "SEIZED"
+   ],
+   "music": null
+  },
+  {
+   "id": "B07",
+   "start": 14.47,
+   "end": 16.63,
+   "caption": "THANKED HIM WITH A PLAQUE",
+   "highlight": [
+    "PLAQUE"
+   ],
+   "music": null
+  },
+  {
+   "id": "B08",
+   "start": 16.63,
+   "end": 19.8,
+   "caption": "AN AGENT WAS SENT TO WATCH HIM",
+   "highlight": [
+    "AGENT"
+   ],
+   "music": null
+  },
+  {
+   "id": "B09",
+   "start": 19.8,
+   "end": 21.61,
+   "caption": "KEEP THE LEGEND QUIET",
+   "highlight": [
+    "QUIET"
+   ],
+   "music": null
+  },
+  {
+   "id": "B10",
+   "start": 21.61,
+   "end": 24.01,
+   "caption": "A MONSTER WENT ON A RAMPAGE",
+   "highlight": [
+    "RAMPAGE"
+   ],
+   "music": null
+  },
+  {
+   "id": "B11",
+   "start": 24.01,
+   "end": 25.21,
+   "caption": "WORTH 80 BILLION",
+   "highlight": [
+    "80",
+    "BILLION"
+   ],
+   "music": null
+  },
+  {
+   "id": "B12",
+   "start": 25.21,
+   "end": 27.21,
+   "caption": "NO HUNTER COULD STOP IT",
+   "highlight": [
+    "NO",
+    "HUNTER"
+   ],
+   "music": null
+  },
+  {
+   "id": "B13",
+   "start": 27.21,
+   "end": 28.71,
+   "caption": "THE OFFICIALS BEGGED HIM",
+   "highlight": [
+    "BEGGED"
+   ],
+   "music": null
+  },
+  {
+   "id": "B14",
+   "start": 28.71,
+   "end": 29.83,
+   "caption": "HE ONLY SIGHED",
+   "highlight": [
+    "SIGHED"
+   ],
+   "music": null
+  },
+  {
+   "id": "B15",
+   "start": 29.83,
+   "end": 31.71,
+   "caption": "HE WALKED STRAIGHT AT IT",
+   "highlight": [
+    "STRAIGHT"
+   ],
+   "music": null
+  },
+  {
+   "id": "B16",
+   "start": 31.71,
+   "end": 32.84,
+   "caption": "ONE LAZY SLASH",
+   "highlight": [
+    "SLASH"
+   ],
+   "music": "sting"
+  },
+  {
+   "id": "B17",
+   "start": 32.84,
+   "end": 34.71,
+   "caption": "CUT IT CLEAN IN HALF",
+   "highlight": [
+    "HALF"
+   ],
+   "music": null
+  },
+  {
+   "id": "B18",
+   "start": 34.71,
+   "end": 37.61,
+   "caption": "THE REAL SHOCK CAME AFTER",
+   "highlight": [
+    "SHOCK"
+   ],
+   "music": "shift"
+  },
+  {
+   "id": "B19",
+   "start": 37.61,
+   "end": 39.34,
+   "caption": "THE GODS APPEARED",
+   "highlight": [
+    "GODS"
+   ],
+   "music": null
+  },
+  {
+   "id": "B20",
+   "start": 39.34,
+   "end": 40.99,
+   "caption": "THEY OFFERED HIM A CONTRACT",
+   "highlight": [
+    "CONTRACT"
+   ],
+   "music": null
+  },
+  {
+   "id": "B21",
+   "start": 40.99,
+   "end": 42.3,
+   "caption": "TO BECOME THEIR CHAMPION",
+   "highlight": [
+    "CHAMPION"
+   ],
+   "music": null
+  },
+  {
+   "id": "B22",
+   "start": 42.3,
+   "end": 44.28,
+   "caption": "ANY MAN WOULD KILL FOR IT",
+   "highlight": [
+    "KILL"
+   ],
+   "music": null
+  },
+  {
+   "id": "B23",
+   "start": 44.28,
+   "end": 46.24,
+   "caption": "HE REFUSED THE GODS",
+   "highlight": [
+    "REFUSED"
+   ],
+   "music": null
+  },
+  {
+   "id": "B24",
+   "start": 46.24,
+   "end": 48.68,
+   "caption": "HE BOWS TO NO GOD",
+   "highlight": [
+    "NO",
+    "GOD"
+   ],
+   "music": null
+  },
+  {
+   "id": "B25",
+   "start": 48.68,
+   "end": 50.28,
+   "caption": "SOLO SWORDMASTER",
+   "highlight": [
+    "SOLO",
+    "SWORDMASTER"
+   ],
+   "music": null
+  },
+  {
+   "id": "END",
+   "start": 50.28,
+   "end": 52.08,
+   "caption": "END CARD",
+   "highlight": [],
+   "music": "swell"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "file": "/home/hatch/workspace/Shorts-builder/projects/test-solo/shorts/short1/out/Solo_Swordmaster_Short_v1.mp4",
+ "width": 1080,
+ "height": 1920,
+ "duration": 52.1,
+ "checks": {
+  "spec_1080x1920": true,
+  "duration_matches_beats": true
+ },
+ "frames_sheet": "/home/hatch/workspace/Shorts-builder/projects/test-solo/shorts/short1/build/qc_frames.png"
+}

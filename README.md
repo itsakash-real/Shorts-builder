@@ -45,5 +45,24 @@ The world's strongest man is broke" (54.8s, 26 beats), produced manually on
 
 ## Status
 
-Foundation: spec + style lock + golden reference + caption font.
-Stages are being built in order; see `SPEC.md` for the full contract.
+**Working end-to-end (v0.1).** All stages are implemented in
+`shorts_builder/` (ingest, understand/OCR, script validation, VO, beats,
+EDL validation, renderer, QC, posting pack). Verified 2026-10-23 with a
+full run on Solo Swordmaster ch1 — link in, finished short out
+(52.1s, 1080×1920, QC spec PASS); the worked example (script, EDL, beats,
+posting pack) lives in `projects/test-solo/`.
+
+Usage:
+```
+python -m shorts_builder.cli new <project> --chapters <url...>
+python -m shorts_builder.cli understand <project> --chapter 1
+# agent writes shorts/<short>/script.json (docs/SCRIPT_STYLE.md)
+python -m shorts_builder.cli vo <project> <short>
+python -m shorts_builder.cli beats <project> <short>
+# agent writes shorts/<short>/edl.json (panel + exact 9:16 crop + motion per beat)
+python -m shorts_builder.cli render <project> <short>   # render + QC + posting pack
+```
+Known v1 limits: renders are not fast (~10 min cold for 26 beats on a
+small VM; segments are cached, re-renders are ~1 min); the script and
+EDL stages are agent-driven by design (same pattern as the MahwaOCR
+product) — the software validates both against hard contracts.
