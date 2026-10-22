@@ -11,6 +11,13 @@ The world's strongest man is broke" (54.8s, 26 beats), produced manually on
 2026-10-22. Its beat sheet and edit decision list are kept in
 `examples/short1-golden/` as the ground-truth target this software reproduces.
 
+## For agents
+
+A fresh agent can run this product end to end from
+[`docs/AGENT_WORKFLOW.md`](docs/AGENT_WORKFLOW.md) — setup, stage commands,
+the script and EDL contracts, QC duties, hard rules, and known failure
+modes. Hand that file to the agent along with the chapter links.
+
 ## Pipeline (7 stages)
 
 1. **Ingest** — fetch chapter pages from the links, extract panels.
