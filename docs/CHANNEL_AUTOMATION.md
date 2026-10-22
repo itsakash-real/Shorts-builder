@@ -29,14 +29,41 @@ WHAT to build each day, WHEN to post it, and HOW to report.
   to produce) — always eligible filler so the daily count never fails.
 
 ### 2. Select — 8 shorts (the daily batch)
-For each candidate chapter ask: *does it contain ONE moment that fits the
-locked short style* (a humiliation→power contrast, a reveal, a refusal, a
-betrayal, an absurd premise)? If yes, it's in. Mix per day:
-- ~4 from today's hot/new chapters (trend-riding),
-- ~4 from evergreen pool + Solo Swordmaster inventory (reliability).
-Never repeat an angle already posted; check the channel's posted log
-(goal workspace `posted_log.md`) first. Queue the batch as a written
-list (series, chapter, angle, hook line) before building.
+
+**Selection score — a candidate chapter earns a slot only if it passes
+all three:**
+1. **Signal** — it's visibly hot today: a fresh chapter in the
+   last-24h update lists, a live Reddit discussion/release thread, or a
+   series in the evergreen US pool (search demand already proven).
+2. **The Moment** — the chapter contains ONE scene that fits the locked
+   style: a humiliation→power contrast, a refusal, a reveal, a betrayal,
+   an absurd premise. Found by skimming the chapter's panels + OCR —
+   the short is a moment, never a full-chapter recap.
+3. **A hook line** — that moment compresses into one absurd sentence
+   for the title/first line. If you can't write the hook, the moment
+   isn't strong enough. Skip it.
+
+Mix per day: ~4 trend/new-chapter, ~4 evergreen + Solo inventory.
+Never repeat an angle already posted; check the posted log
+(goal workspace `posted_log.md`) first. Write the batch list (series,
+chapter, angle, hook line) before building.
+
+**The context ladder — NEVER read a whole series to use one chapter.**
+A new chapter of a 222-chapter series needs only enough context to
+write ~11 honest sentences. Climb only as high as needed:
+1. **The chapter itself** — panels + OCR give the moment, the players
+   present, and what literally happens. Usually sufficient.
+2. **The chapter's own framing** — many chapters open with a synopsis
+   or "previously" panels; the series page blurb gives premise + MC.
+3. **Community context** — the Reddit chapter thread and/or the series'
+   fandom wiki page: who the MC is, the power system, the current arc.
+   Two minutes, written by fans, exactly the context a viewer has.
+4. **The previous 1–2 chapters** — skim panels/OCR only if a callback
+   in this chapter makes no sense without them.
+Hard stop: never ingest more than ~3 chapters of backstory for one
+short, and never state a "fact" in a script that the ladder didn't
+actually verify. Roles-not-names style keeps the exposure low anyway:
+the script needs the *situation* right, not the lore.
 
 ### 3. Build — Shorts Builder pipeline
 Per `docs/AGENT_WORKFLOW.md`: ingest → understand → script → VO → beats
@@ -79,6 +106,55 @@ series/angle. Then lock the ongoing schedule to the best 3–4 windows and
 keep volume at 6–8/day inside them. Record findings in the goal
 workspace (`timing_test.md`) — that analysis, not habit, sets the
 long-term posting times.
+
+## Voice (locked)
+Deepgram **aura-2-orion-en** at **native 1.3x** — Deepgram's flagship
+male Aura-2 voice, and the voice of Short #1 (the one already
+performing). One consistent voice is part of the channel's identity;
+never switch voices per video. Timings always derive from the final
+1.3x audio.
+
+## BGM policy
+- Sound like the big channels, **sourced legally**: they mostly use
+  stock/library tracks (phonk, dark orchestral tension, cinematic
+  beds). We identify the actual tracks via Short audio attributions
+  and descriptions, then license the SAME tracks from legitimate
+  libraries (YouTube Audio Library, Pixabay Music, Uppbeat, NCS).
+- **Never rip audio out of another channel's video.** Beyond the
+  copyright claim risk, YouTube's *reused content* policy can reject
+  the channel from the Partner Program — it directly kills the
+  monetization goal. Same sound, legal source: identical result.
+- Mix: BGM bed at **−19 dB under the voice**, sidechain-ducked, so the
+  narration is always on top. Riser/hit stings stay as designed.
+- The competitor BGM research lives in
+  `~/workspace/research_notes/mangvoro-competitor-bgm/report.md` and
+  feeds a local track library; rotate tracks, never one track all day.
+- During the daily research step, also sample 4–5 competitor shorts
+  (angles + any newly attributed tracks) and append findings to that
+  report — the library stays current with what the niche is using.
+
+## Monetization levers (how the 30 days are actually attacked)
+No honest plan *guarantees* 10M views in 30 days — anyone who does is
+lying. What we control, we max out:
+1. **Volume + consistency** — 6–8/day, never a missed day; the
+   algorithm rewards streaks and each short is a lottery ticket.
+2. **Trend-riding** — today's chapters of hot series (selection §2),
+   so we borrow existing search/demand instead of creating it.
+3. **Retention engineering** — hook in 2s, a visual cut every 1–2s,
+   cliffhanger freeze + end question; Short #1's 59.4% APV is the
+   floor to beat, reviewed per short in analytics.
+4. **Double down on winners** — any short that breaks out gets a
+   sequel/part-2 within 24–48h while its topic is warm; sequels of
+   hits are the cheapest views on the platform.
+5. **US timing** — the 5-day test finds the windows; then volume
+   concentrates there.
+6. **Engagement** — pinned end-question on every short; reply to early
+   comments (they seed the comment section viewers read).
+7. **Series packaging** — shorts from one series carry a series
+   playlist; a viewer who lands for one episode finds the rest.
+8. **YPP-safety** — transformative narration + own voiceover + legal
+   BGM only; no reused audio, no fake engagement, ever. A policy
+   rejection at day 30 wastes the whole sprint.
 
 ## Standing rules
 - Shorts style = the locked reference style (see AGENT_WORKFLOW). No
