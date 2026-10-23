@@ -29,7 +29,10 @@ The narration is one breathless chain written to be spoken in a rush.
 8. **`[music]` markers are written into the script** at emotional turns
    (impact sting, tone shift, outro swell). They are edit cues, never spoken.
 
-Shape: ~25 beats / ~200 words ≈ 55s at 1.3x. Target 45–100s.
+Shape: ~14–20 beats / ~110–170 words ≈ 30–48s at 1.3x. Target 28–60s.
+LEAN (user directive 2026-10-24: the old ~200-word scripts were too
+wordy) — sentences ≤22 words, cut every sentence that doesn't escalate,
+leave air between beats. The script validator enforces these numbers.
 
 Golden example: `examples/short1-golden/` (script in beats.md; full text in
 `docs/MANUAL_WORKFLOW_REFERENCE.md` companion file SHORTS_SCRIPTS.md #1).

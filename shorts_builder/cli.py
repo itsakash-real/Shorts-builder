@@ -28,9 +28,13 @@ def main() -> None:
     p.add_argument("--chapter", type=int, default=1)
     p = sub.add_parser("render"); p.add_argument("project"); p.add_argument("short")
     p.add_argument("--chapter", type=int, default=1)
+    p.add_argument("--no-bgm", action="store_true",
+                   help="voice-only mix: no music bed, no stings (owner adds music)")
     p = sub.add_parser("qc"); p.add_argument("project"); p.add_argument("short")
     p = sub.add_parser("build"); p.add_argument("project"); p.add_argument("short")
     p.add_argument("--chapter", type=int, default=1)
+    p.add_argument("--no-bgm", action="store_true",
+                   help="voice-only mix: no music bed, no stings (owner adds music)")
     a = ap.parse_args()
     proj = ensure_project(a.project) if a.cmd == "new" else project_dir(a.project)
 
@@ -69,7 +73,8 @@ def main() -> None:
         if a.cmd == "edl":
             print("EDL valid")
             return
-        out = render_mod.render(proj, a.short, a.chapter, s, beats, e)
+        out = render_mod.render(proj, a.short, a.chapter, s, beats, e,
+                                no_bgm=a.no_bgm)
         print(f"rendered -> {out}")
         rep = qc_mod.qc(proj, a.short, beats, out)
         print("QC:", json.dumps(rep["checks"]))

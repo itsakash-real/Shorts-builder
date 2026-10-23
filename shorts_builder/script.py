@@ -32,8 +32,9 @@ def validate(s: dict) -> list[str]:
     for i, sent in enumerate(s.get("sentences", []), 1):
         w = len(sent["text"].split())
         total_words += w
-        if w > 34:
-            errs.append(f"sentence {i}: {w} words (>34) — split it; TTS prosody degrades")
+        if w > 22:
+            errs.append(f"sentence {i}: {w} words (>22) — split it; shorts stay lean "
+                        "(user directive 2026-10-24: too many words)")
         if not sent.get("beats"):
             errs.append(f"sentence {i}: no beats")
         for b in sent.get("beats", []):
@@ -41,8 +42,9 @@ def validate(s: dict) -> list[str]:
             if len(b["caption"].split()) > 8:
                 errs.append(f"sentence {i}: caption too long: {b['caption']!r}")
     est = total_words / WORDS_PER_SEC
-    if not (40 <= est <= 105):
-        errs.append(f"estimated VO {est:.0f}s outside 45–100s target band")
-    if nbeats < 15:
-        errs.append(f"only {nbeats} beats — shorts need dense cuts (golden: 26)")
+    if not (28 <= est <= 60):
+        errs.append(f"estimated VO {est:.0f}s outside 28–60s target band — "
+                    "cut words; lean scripts only (user directive 2026-10-24)")
+    if nbeats < 12:
+        errs.append(f"only {nbeats} beats — shorts need dense cuts (min 12)")
     return errs

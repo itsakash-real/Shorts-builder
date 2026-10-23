@@ -154,7 +154,7 @@ def synth_audio(build: Path):
 
 
 def render(project: Path, short: str, chapter_no: int, script: dict,
-           beats: list, edl: dict) -> Path:
+           beats: list, edl: dict, no_bgm: bool = False) -> Path:
     sdir = project / "shorts" / short
     build = sdir / "build"
     build.mkdir(exist_ok=True)
@@ -201,27 +201,35 @@ def render(project: Path, short: str, chapter_no: int, script: dict,
     video = build / "video.mp4"
     _run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
           "-c", "copy", str(video)])
-    synth_audio(build)
     total = beats[-1]["end"]
-    inputs = ["-i", str(sdir / "vo" / "vo_final.wav"), "-i",
-              str(build / "bed.wav")]
-    filters = ["[0:a]aresample=44100[vo]",
-               "[1:a]atrim=0:" + f"{total:.2f}" + ",volume=0.5[bedraw]",
-               "[bedraw][vo]sidechaincompress=threshold=0.03:ratio=8:"
-               "attack=40:release=400[bed]",
-               "[vo][bed]amix=inputs=2:duration=first:normalize=0[mix]"]
-    cur, n = "mix", 2
-    for b in beats:
-        if b.get("music") in ("sting", "shift", "swell"):
-            src_name = "hit.wav" if b["music"] == "sting" else "riser.wav"
-            inputs += ["-i", str(build / src_name)]
-            ms = int(b["start"] * 1000)
-            filters.append(f"[{n}:a]adelay={ms},volume=0.7[s{n}]")
-            filters.append(f"[{cur}][s{n}]amix=inputs=2:duration=first:"
-                           f"normalize=0[mix{n}]")
-            cur = f"mix{n}"
-            n += 1
-    filters.append(f"[{cur}]apad=whole_dur={total:.2f},atrim=0:{total:.2f},loudnorm=I=-14:TP=-1.5:LRA=11[aout]")
+    if no_bgm:
+        # NO-BGM mode (user directive 2026-10-24): voice-only mix — no music
+        # bed and no sting/riser layers; the owner adds music themselves.
+        inputs = ["-i", str(sdir / "vo" / "vo_final.wav")]
+        filters = ["[0:a]aresample=44100[vo]",
+                   f"[vo]apad=whole_dur={total:.2f},atrim=0:{total:.2f},"
+                   "loudnorm=I=-14:TP=-1.5:LRA=11[aout]"]
+    else:
+        synth_audio(build)
+        inputs = ["-i", str(sdir / "vo" / "vo_final.wav"), "-i",
+                  str(build / "bed.wav")]
+        filters = ["[0:a]aresample=44100[vo]",
+                   "[1:a]atrim=0:" + f"{total:.2f}" + ",volume=0.5[bedraw]",
+                   "[bedraw][vo]sidechaincompress=threshold=0.03:ratio=8:"
+                   "attack=40:release=400[bed]",
+                   "[vo][bed]amix=inputs=2:duration=first:normalize=0[mix]"]
+        cur, n = "mix", 2
+        for b in beats:
+            if b.get("music") in ("sting", "shift", "swell"):
+                src_name = "hit.wav" if b["music"] == "sting" else "riser.wav"
+                inputs += ["-i", str(build / src_name)]
+                ms = int(b["start"] * 1000)
+                filters.append(f"[{n}:a]adelay={ms},volume=0.7[s{n}]")
+                filters.append(f"[{cur}][s{n}]amix=inputs=2:duration=first:"
+                               f"normalize=0[mix{n}]")
+                cur = f"mix{n}"
+                n += 1
+        filters.append(f"[{cur}]apad=whole_dur={total:.2f},atrim=0:{total:.2f},loudnorm=I=-14:TP=-1.5:LRA=11[aout]")
     mix = build / "mix.m4a"
     _run(["ffmpeg", "-y", *inputs, "-filter_complex", ";".join(filters),
           "-map", "[aout]", str(mix)])

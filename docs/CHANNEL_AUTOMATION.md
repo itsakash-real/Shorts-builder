@@ -114,24 +114,24 @@ performing). One consistent voice is part of the channel's identity;
 never switch voices per video. Timings always derive from the final
 1.3x audio.
 
-## BGM policy
-- Sound like the big channels, **sourced legally**: they mostly use
-  stock/library tracks (phonk, dark orchestral tension, cinematic
-  beds). We identify the actual tracks via Short audio attributions
-  and descriptions, then license the SAME tracks from legitimate
-  libraries (YouTube Audio Library, Pixabay Music, Uppbeat, NCS).
-- **Never rip audio out of another channel's video.** Beyond the
-  copyright claim risk, YouTube's *reused content* policy can reject
-  the channel from the Partner Program — it directly kills the
-  monetization goal. Same sound, legal source: identical result.
-- Mix: BGM bed at **−19 dB under the voice**, sidechain-ducked, so the
-  narration is always on top. Riser/hit stings stay as designed.
-- The competitor BGM research lives in
-  `~/workspace/research_notes/mangvoro-competitor-bgm/report.md` and
-  feeds a local track library; rotate tracks, never one track all day.
-- During the daily research step, also sample 4–5 competitor shorts
-  (angles + any newly attributed tracks) and append findings to that
-  report — the library stays current with what the niche is using.
+## BGM policy (CHANGED — user directive 2026-10-24)
+- **NO BGM in the daily run's shorts.** Render every short with
+  `render --no-bgm` (voice-only mix: no music bed, no sting/riser
+  layers). The owner adds music themselves after delivery — do not
+  add, synthesize, or source any music track for the daily run.
+- **Never rip audio out of another channel's video** (standing rule,
+  unchanged): copyright claims + YouTube's *reused content* policy
+  can reject the channel from the Partner Program.
+- Competitor research during the daily step is now angles/hooks only
+  (no BGM track identification); the old library research stays at
+  `~/workspace/research_notes/mangvoro-competitor-bgm/report.md` as
+  history.
+
+## Script length (user directive 2026-10-24)
+The Day-1 shorts were too wordy. Scripts are LEAN now: ~110–170 words
+total, sentences ≤22 words, target 28–60s of VO. Cut every sentence
+that doesn't escalate. The script validator enforces this — a script
+that fails the band is rewritten shorter, never padded out.
 
 ## Monetization levers (how the 30 days are actually attacked)
 No honest plan *guarantees* 10M views in 30 days — anyone who does is
