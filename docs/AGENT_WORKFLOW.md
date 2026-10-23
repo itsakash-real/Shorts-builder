@@ -204,10 +204,11 @@ Validate (fix and re-run until clean):
 .venv/bin/python -m shorts_builder.cli render <project> short<N>
 ```
 
-**Mangvoro daily run: ALWAYS add `--no-bgm`** (user directive
-2026-10-24) — voice-only mix, no music bed, no sting/riser layers; the
-owner adds music themselves. One-off builds keep the default below
-unless told otherwise.
+**Mangvoro daily run: ALWAYS render with
+`--bgm assets/bgm/<track>.mp3`** (user directive 2026-10-24) — a real
+trending track from the YouTube Audio Library, mixed low and ducked
+under the voice (voice always clearly audible). NEVER the synthesized
+bed for the daily run. Rotate tracks across the day's shorts.
 
 Renders per-beat motion segments (cached — re-renders after an EDL fix
 only redo the changed beats), burns Anton captions, mixes the VO with a

@@ -154,7 +154,8 @@ def synth_audio(build: Path):
 
 
 def render(project: Path, short: str, chapter_no: int, script: dict,
-           beats: list, edl: dict, no_bgm: bool = False) -> Path:
+           beats: list, edl: dict, no_bgm: bool = False,
+           bgm: str = None) -> Path:
     sdir = project / "shorts" / short
     build = sdir / "build"
     build.mkdir(exist_ok=True)
@@ -202,7 +203,25 @@ def render(project: Path, short: str, chapter_no: int, script: dict,
     _run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
           "-c", "copy", str(video)])
     total = beats[-1]["end"]
-    if no_bgm:
+    if bgm:
+        # LIBRARY-BGM mode (user directive 2026-10-24): a real track from
+        # the YouTube Audio Library (assets/bgm/), looped to length, faded
+        # out at the end, and mixed LOW under the voice (sidechain-ducked,
+        # ~-19 dB under VO) — the narration must always stay clearly
+        # audible. No synthesized bed, no synth stings: the track carries
+        # the energy.
+        fade_st = max(0.0, total - 1.5)
+        inputs = ["-i", str(sdir / "vo" / "vo_final.wav"),
+                  "-stream_loop", "-1", "-i", str(bgm)]
+        filters = ["[0:a]aresample=44100[vo]",
+                   f"[1:a]aresample=44100,atrim=0:{total:.2f},"
+                   f"afade=t=out:st={fade_st:.2f}:d=1.5,volume=0.16[bedraw]",
+                   "[bedraw][vo]sidechaincompress=threshold=0.03:ratio=8:"
+                   "attack=40:release=400[bed]",
+                   "[vo][bed]amix=inputs=2:duration=first:normalize=0[mix]",
+                   f"[mix]apad=whole_dur={total:.2f},atrim=0:{total:.2f},"
+                   "loudnorm=I=-14:TP=-1.5:LRA=11[aout]"]
+    elif no_bgm:
         # NO-BGM mode (user directive 2026-10-24): voice-only mix — no music
         # bed and no sting/riser layers; the owner adds music themselves.
         inputs = ["-i", str(sdir / "vo" / "vo_final.wav")]

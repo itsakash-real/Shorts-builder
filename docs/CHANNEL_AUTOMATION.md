@@ -28,7 +28,7 @@ WHAT to build each day, WHEN to post it, and HOW to report.
 - Our own inventory: Solo Swordmaster ch1–23 (fully understood, fastest
   to produce) — always eligible filler so the daily count never fails.
 
-### 2. Select — 8 shorts (the daily batch)
+### 2. Select — 14 shorts (the daily batch; target raised by user 2026-10-24)
 
 **Selection score — a candidate chapter earns a slot only if it passes
 all three:**
@@ -103,7 +103,7 @@ uploads, and report — never fight a login or a CAPTCHA.**
 Purpose: learn WHEN US viewers actually watch us. After Day 5, analyze:
 views + average percentage viewed grouped by publish slot (ET) and by
 series/angle. Then lock the ongoing schedule to the best 3–4 windows and
-keep volume at 6–8/day inside them. Record findings in the goal
+keep volume at 14/day inside them. Record findings in the goal
 workspace (`timing_test.md`) — that analysis, not habit, sets the
 long-term posting times.
 
@@ -114,18 +114,23 @@ performing). One consistent voice is part of the channel's identity;
 never switch voices per video. Timings always derive from the final
 1.3x audio.
 
-## BGM policy (CHANGED — user directive 2026-10-24)
-- **NO BGM in the daily run's shorts.** Render every short with
-  `render --no-bgm` (voice-only mix: no music bed, no sting/riser
-  layers). The owner adds music themselves after delivery — do not
-  add, synthesize, or source any music track for the daily run.
+## BGM policy (CHANGED AGAIN — user directive 2026-10-24 ~03:54 IST)
+- **The synthesized bed is BANNED for the daily run** — the owner
+  called it "very weird". Daily-run shorts use REAL, TRENDING tracks
+  from the **YouTube Audio Library** (the same library the big
+  channels pull from), downloaded into `assets/bgm/` and rotated —
+  never one track all day.
+- Render with `render --bgm assets/bgm/<track>.mp3`: the track is
+  looped to length and mixed LOW — sidechain-ducked to sit ~−19 dB
+  under the voice. **The voice must always be clearly audible on
+  top**; if a track fights the narration, turn it down or swap it.
+- Sourcing: identify what the niche is using via competitor Short
+  audio attributions, then download the SAME tracks from the YouTube
+  Audio Library itself (Studio → Audio library, signed-in browser).
+  Keep at least 4–6 usable tracks in `assets/bgm/`.
 - **Never rip audio out of another channel's video** (standing rule,
   unchanged): copyright claims + YouTube's *reused content* policy
   can reject the channel from the Partner Program.
-- Competitor research during the daily step is now angles/hooks only
-  (no BGM track identification); the old library research stays at
-  `~/workspace/research_notes/mangvoro-competitor-bgm/report.md` as
-  history.
 
 ## Script length (user directive 2026-10-24)
 The Day-1 shorts were too wordy. Scripts are LEAN now: ~110–170 words
@@ -136,7 +141,7 @@ that fails the band is rewritten shorter, never padded out.
 ## Monetization levers (how the 30 days are actually attacked)
 No honest plan *guarantees* 10M views in 30 days — anyone who does is
 lying. What we control, we max out:
-1. **Volume + consistency** — 6–8/day, never a missed day; the
+1. **Volume + consistency** — 14/day target, never a missed day; the
    algorithm rewards streaks and each short is a lottery ticket.
 2. **Trend-riding** — today's chapters of hot series (selection §2),
    so we borrow existing search/demand instead of creating it.

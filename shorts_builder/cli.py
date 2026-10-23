@@ -30,11 +30,17 @@ def main() -> None:
     p.add_argument("--chapter", type=int, default=1)
     p.add_argument("--no-bgm", action="store_true",
                    help="voice-only mix: no music bed, no stings (owner adds music)")
+    p.add_argument("--bgm", default=None,
+                   help="path to a YouTube Audio Library track: looped, "
+                        "ducked low under the voice (daily-run mode)")
     p = sub.add_parser("qc"); p.add_argument("project"); p.add_argument("short")
     p = sub.add_parser("build"); p.add_argument("project"); p.add_argument("short")
     p.add_argument("--chapter", type=int, default=1)
     p.add_argument("--no-bgm", action="store_true",
                    help="voice-only mix: no music bed, no stings (owner adds music)")
+    p.add_argument("--bgm", default=None,
+                   help="path to a YouTube Audio Library track: looped, "
+                        "ducked low under the voice (daily-run mode)")
     a = ap.parse_args()
     proj = ensure_project(a.project) if a.cmd == "new" else project_dir(a.project)
 
@@ -73,8 +79,10 @@ def main() -> None:
         if a.cmd == "edl":
             print("EDL valid")
             return
+        if a.no_bgm and a.bgm:
+            raise SystemExit("--no-bgm and --bgm are mutually exclusive")
         out = render_mod.render(proj, a.short, a.chapter, s, beats, e,
-                                no_bgm=a.no_bgm)
+                                no_bgm=a.no_bgm, bgm=a.bgm)
         print(f"rendered -> {out}")
         rep = qc_mod.qc(proj, a.short, beats, out)
         print("QC:", json.dumps(rep["checks"]))
