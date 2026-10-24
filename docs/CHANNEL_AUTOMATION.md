@@ -73,12 +73,15 @@ from the batch and replaced from the Solo inventory — the count matters,
 but a defective short never ships.
 
 ### 4. Titles (US search + click style)
-Format: `<Hook statement> | <Series Name>` or the hook as a question.
+Format: the hook ALONE — a statement or a question. **NO series name
+in the title, and NO series name in the comment either** (user
+directive 2026-10-24). The series name lives ONLY in the description
+line + hashtags, where it still does its search work.
 Rules: the hook IS the title (curiosity gap, no spoiler of the payoff),
-series name always present (search), ≤70 characters where possible,
-no clickbait the video doesn't pay off. Description: the end question +
-one line + hashtags (#manhwa #manhwarecap #shorts + series tag).
-Pinned comment: the end question, posted right after publish time.
+≤70 characters where possible, no clickbait the video doesn't pay off.
+Description: the end question + one line naming the series + hashtags
+(#manhwa #manhwarecap #shorts + series tag).
+Comment (unpinned): the end question only — no series name in it.
 
 ### 5. Upload + schedule
 Upload each finished short via YouTube Studio (browser, already signed
