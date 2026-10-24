@@ -213,11 +213,16 @@ def render(project: Path, short: str, chapter_no: int, script: dict,
         fade_st = max(0.0, total - 1.5)
         inputs = ["-i", str(sdir / "vo" / "vo_final.wav"),
                   "-stream_loop", "-1", "-i", str(bgm)]
+        # NB (2026-10-24 fix): fade-out must be applied AFTER sidechaincompress.
+        # sidechaincompress stops consuming the bed when the shorter VO
+        # sidechain hits EOF, so a fade placed before it never plays and the
+        # END-card tail (~1-2s) went silent. Duck first, then fade.
         filters = ["[0:a]aresample=44100[vo]",
                    f"[1:a]aresample=44100,atrim=0:{total:.2f},"
-                   f"afade=t=out:st={fade_st:.2f}:d=1.5,volume=0.16[bedraw]",
+                   "volume=0.16[bedraw]",
                    "[bedraw][vo]sidechaincompress=threshold=0.03:ratio=8:"
-                   "attack=40:release=400[bed]",
+                   "attack=40:release=400[bedduck]",
+                   f"[bedduck]afade=t=out:st={fade_st:.2f}:d=1.5[bed]",
                    "[vo][bed]amix=inputs=2:duration=first:normalize=0[mix]",
                    f"[mix]apad=whole_dur={total:.2f},atrim=0:{total:.2f},"
                    "loudnorm=I=-14:TP=-1.5:LRA=11[aout]"]
